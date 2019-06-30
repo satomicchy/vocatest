@@ -5,7 +5,7 @@
 		<div class="inner">
 
 			<!-- Content -->
-			<h2 id="content">Today's 10 words</h2>
+			<h2 id="content">Today's 20 words</h2>
 
 			<hr class="major" />
 
@@ -14,6 +14,13 @@
 				<div class="col-6 col-12-medium">
 
 					<!-- Table -->
+          <h4>
+            <% if params[:book_id] == "0" %>
+              Mix
+            <% else %>
+              <%= @book.title %>
+            <% end %>
+          </h4>
 					<div class="table-wrapper">
 						<table class="alt">
 							<thead>
@@ -24,38 +31,27 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Item1</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
-									<td>Check!</td>
-								</tr>
-								<tr>
-									<td>Item2</td>
-									<td>Vis ac commodo adipiscing arcu aliquet.</td>
-									<td>Check!</td>
-								</tr>
-								<tr>
-									<td>Item3</td>
-									<td> Morbi faucibus arcu accumsan lorem.</td>
-									<td>Check!</td>
-								</tr>
-								<tr>
-									<td>Item4</td>
-									<td>Vitae integer tempus condimentum.</td>
-									<td>Check!</td>
-								</tr>
-								<tr>
-									<td>Item5</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
-									<td>Check!</td>
-								</tr>
+                <% @words.each_with_index do |word, i| %>
+                  <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= word.character %>&nbsp;&nbsp;(<%= word.order_number %>)</td>
+                    <td>Check</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                      <%= word.meaning %>
+                      <br><br>
+                      <%= link_to 'flashcard', search_alc_url(word), html_options = {target: "_blank", class: "button small disabled"} %>
+                      &nbsp;&nbsp;&nbsp;
+                      <%= link_to 'alc', search_alc_url(word), html_options = {target: "_blank", class: "button small"} %>
+                      &nbsp;&nbsp;&nbsp;
+                      <%= link_to 'weblio', search_weblio_url(word), html_options = {target: "_blank", class: "button small"} %>
+                      &nbsp;&nbsp;&nbsp;
+                      <%= link_to 'images', search_image_url(word), html_options = {target: "_blank", class: "button small"} %>
+                    </td>
+                  </tr>
+                <% end %>
 							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="2"></td>
-									<td>100.00</td>
-								</tr>
-							</tfoot>
 						</table>
 					</div>
 

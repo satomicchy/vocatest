@@ -19,7 +19,7 @@
           <%= image_tag 'pic01.jpg', alt: "" %>
         </span>
         <header class="major">
-          <h3><a href="landing.html" class="link">Kikutan 600</a></h3>
+          <h3><%= link_to 'Kikutan 600', guides_word_list_path(book_id: 1), class: "link" %></h3>
           <p>&nbsp;</p>
         </header>
       </article>
@@ -28,7 +28,7 @@
           <%= image_tag 'pic02.jpg', alt: "" %>
         </span>
         <header class="major">
-          <h3><a href="landing.html" class="link">Kikutan 800</a></h3>
+          <h3><%= link_to 'Kikutan 800', guides_word_list_path(book_id: 2), class: "link" %></h3>
           <p>&nbsp;</p>
         </header>
       </article>
@@ -37,7 +37,7 @@
           <%= image_tag 'pic03.jpg', alt: "" %>
         </span>
         <header class="major">
-          <h3><a href="landing.html" class="link">Kikutan 990</a></h3>
+          <h3><%= link_to 'Kikutan 990', guides_word_list_path(book_id: 3), class: "link" %></h3>
           <p>&nbsp;</p>
         </header>
       </article>
@@ -46,7 +46,7 @@
           <%= image_tag 'pic04.jpg', alt: "" %>
         </span>
         <header class="major">
-          <h3><a href="landing.html" class="link">Mix</a></h3>
+          <h3><%= link_to 'Mix', guides_word_list_path(book_id: 0), class: "link" %></h3>
           <p>mixed 600, 800 and 990</p>
         </header>
       </article>
@@ -55,7 +55,7 @@
           <%= image_tag 'pic05.jpg', alt: "" %>
 				</span>
 				<header class="major">
-					<h3><a href="landing.html" class="link">My cards</a></h3>
+					<h3><a href="/" class="link">My flashcards<br>(coming soon!)</a></h3>
 					<p>saved by myself</p>
 				</header>
 			</article>

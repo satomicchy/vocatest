@@ -35,9 +35,9 @@
                   <tr>
                     <td><%= i + 1 %></td>
                     <td><%= word.character %>&nbsp;&nbsp;(<%= word.order_number %>)</td>
-                    <td>Check</td>
+                    <td id="open_meaning_<%= i + 1 %>">Check</td>
                   </tr>
-                  <tr>
+                  <tr id="meaning_area_<%= i + 1 %>" style="display:none;">
                     <td colspan="3">
                       <%= word.meaning %>
                       <br><br>

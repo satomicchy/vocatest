@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_011409) do
+ActiveRecord::Schema.define(version: 2019_06_30_012453) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "flashcards", force: :cascade do |t|
+    t.integer "word_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_flashcards_on_user_id"
+    t.index ["word_id"], name: "index_flashcards_on_word_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,5 +44,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_011409) do
     t.index ["book_id"], name: "index_words_on_book_id"
   end
 
+  add_foreign_key "flashcards", "users"
+  add_foreign_key "flashcards", "words"
   add_foreign_key "words", "books"
 end

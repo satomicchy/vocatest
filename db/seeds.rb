@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+["キクタン600", "キクタン800", "キクタン990"].each do |title|
+  Book.find_or_create_by(title: title)
+end

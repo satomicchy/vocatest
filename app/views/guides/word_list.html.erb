@@ -11,7 +11,7 @@
 
 			<!-- Elements -->
 			<div class="row gtr-200">
-				<div class="col-6 col-12-medium">
+				<div class="col-12 col-12-medium">
 
 					<!-- Table -->
           <h4>
@@ -22,7 +22,7 @@
             <% end %>
           </h4>
 					<div class="table-wrapper">
-						<table class="alt">
+						<table>
 							<thead>
 								<tr>
 									<th>No.</th>
@@ -34,8 +34,8 @@
                 <% @words.each_with_index do |word, i| %>
                   <tr>
                     <td><%= i + 1 %></td>
-                    <td><%= word.character %>&nbsp;&nbsp;(<%= word.order_number %>)</td>
-                    <td id="open_meaning_<%= i + 1 %>">Check</td>
+                    <td><%= word.character %></td>
+                    <td><%= link_to 'Check', "javascript:void(0)", class: "button primary small", id: "open_meaning_#{i + 1}" %></td>
                   </tr>
                   <tr id="meaning_area_<%= i + 1 %>" style="display:none;">
                     <td colspan="3">

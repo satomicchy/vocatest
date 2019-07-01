@@ -16,7 +16,6 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body class="">
-
 		<!-- Wrapper -->
 		<div id="wrapper">
 
@@ -37,6 +36,14 @@
 					</ul>
 				</div>
 			</footer>
+      <script type="text/javascript">
+        <% (1..20).each do |n| %>
+          <%== ("document.getElementById('open_meaning_#{n}').onclick = function() {
+           var yourUl = document.getElementById('meaning_area_#{n}');
+           yourUl.style.display = yourUl.style.display === 'none' ? '' : 'none';
+           };") %>
+        <% end %>
+      </script>
 
 		</div>
 	</body>
